@@ -1,0 +1,33 @@
+---- System Crash Report ----
+// Oh - I know what I did wrong!
+
+Time: 3/14/18 4:13 PM
+Description: The Start() method had an exception thrown.
+
+com.mangodev.crash.IllegalCrashReportException
+	at com.mangodev.App.Start.<init>(Start.java:100)
+	at com.mangodev.App.Main.main(Main.java:21)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: main
+Stacktrace:
+	at com.mangodev.App.Start.<init>(Start.java:100)
+
+-- Exception Names --
+Details:
+	Exception Name: ~~NULL~~
+Stacktrace:
+	at com.mangodev.App.Main.main(Main.java:21)
+
+-- System Details --
+Details:
+	SoftWare Version: 1.0 ALPHA
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_151, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 90901552 bytes (86 MB) / 96468992 bytes (92 MB) up to 1411383296 bytes (1346 MB)
+	JVM Flags: 0 total; 

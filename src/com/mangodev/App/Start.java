@@ -2,6 +2,7 @@ package com.mangodev.App;
 
 import com.mangodev.crash.CrashReport;
 import com.mangodev.crash.CrashReportCategory;
+import com.mangodev.crash.IllegalCrashReportException;
 import com.mangodev.crash.ReportedException;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.Logger;
@@ -12,7 +13,7 @@ import java.util.Date;
 @copyright(year = "2018")
 @author(name = "Bodie Brewer")
 public class Start {
-    public Start(){
+    public Start() throws Exception{
         Logger LOGGER = Logger.getLogger(Start.class);
         PropertyConfigurator.configure("log4j.properties");
         CrashReport report = null;
@@ -25,9 +26,8 @@ public class Start {
         boolean init_finished = false;
         boolean post_init_finished = false;
         boolean app_initilized = false;
-        //DANGER!! THIS HAS TO BE SET TO FALSE! EVEN WHILE DEBUGGING! WILL CAUSE NullPointerException!!
         @Deprecated
-        boolean is_crashed = false;
+        boolean is_crashed = true;
         boolean in_dev_mode = true;
         Exception cause_of_crash;
 
@@ -91,8 +91,15 @@ public class Start {
             }
             app_initilized = false;
         }
-        if(is_crashed){
+        if(is_crashed && report != null){
             throw new ReportedException(report);
+        } else if(is_crashed && report == null){
+        	LOGGER.error("is_crashed is initalized but CrashReport is null!");
+        	LOGGER.error("Cannot crash the system properly!");
+        	LOGGER.error("Attempting to throw an exception");
+        	throw new IllegalCrashReportException();
+        } else{
+        	
         }
     }
     public static void displayCrashReport(CrashReport crashReportIn)
