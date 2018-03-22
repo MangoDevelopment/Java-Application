@@ -27,7 +27,7 @@ public class Start {
         boolean post_init_finished = false;
         boolean app_initilized = false;
         @Deprecated
-        boolean is_crashed = true;
+        boolean is_crashed = false;
         boolean in_dev_mode = true;
         Exception cause_of_crash;
 
