@@ -56,7 +56,6 @@ public class Login implements ActionListener{
      */
     public static String encrypt(String plainText) throws UnsupportedEncodingException, BadPaddingException, NoSuchPaddingException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, NoSuchAlgorithmException {
     	String encryptedText = "";
-    	try {
         Cipher cipher   = Cipher.getInstance(cipherTransformation);
         byte[] key      = encryptionKey.getBytes(characterEncoding);
         SecretKeySpec secretKey = new SecretKeySpec(key, aesEncryptionAlgorithem);
@@ -64,22 +63,7 @@ public class Login implements ActionListener{
         cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivparameterspec);
         byte[] cipherText = cipher.doFinal(plainText.getBytes("UTF8"));
         Base64.Encoder encoder = Base64.getEncoder();
-        encryptedText = encoder.encodeToString(cipherText);
-    	} catch(InvalidKeyException e1){
-    		throw new InvalidKeyException("Cypher ERROR");
-    	} catch(InvalidAlgorithmParameterException e2){
-    		throw new InvalidAlgorithmParameterException("Cypher ERROR");
-    	} catch(BadPaddingException e3){
-    		throw new BadPaddingException("Cypher ERROR");
-    	} catch(UnsupportedEncodingException e4){
-    		throw new UnsupportedEncodingException("Cypher ERROR");
-    	} catch(NoSuchPaddingException e5){
-    		throw new NoSuchPaddingException("Cypher ERROR");
-    	} catch(NoSuchAlgorithmException e6){
-    		throw new NoSuchAlgorithmException("Cypher ERROR");
-    	} catch(IllegalBlockSizeException e7){
-    		throw new IllegalBlockSizeException("Cypher ERROR");
-    	}
+        encryptedText = encoder.encodeToString(cipherText); 
         return encryptedText;
     }
  
