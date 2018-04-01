@@ -18,7 +18,7 @@ public class Main {
         System.out.println("23434");
         try {
             LOGGER.info("Starting main method");
-            new Start();
+            new Main.Start();
 			LOGGER.info("Finished Main Method");
 			TimeUnit.SECONDS.sleep(1);
         } catch (ReportedException reportedexception) {
