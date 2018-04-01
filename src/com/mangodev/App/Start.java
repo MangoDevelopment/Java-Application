@@ -92,7 +92,7 @@ public class Start {
     		LOGGER.error("Attempting to throw an exception");
     		throw new IllegalCrashReportException();
     	} else{
-    		LOGGER.info("Checked for crash. All is well.");
+    		LOGGER.warn("Checked for crash. All is well. Something must be up.");
     	}
     }
    
